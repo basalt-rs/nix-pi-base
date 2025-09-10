@@ -16,7 +16,7 @@ CONFIGS  := $(patsubst config/%.example.toml,config/%.toml,$(EXAMPLES))
 	fi
 
 setup-pathing:
-	sed -i 's/\/home\/jack\/dev\/nix-pi-base/$(pwd)' flake.nix
+	sed -i 's|/home/jack/dev/nix-pi-base|$(shell pwd)|g' flake.nix
 
 setup-config: $(CONFIGS)
 
