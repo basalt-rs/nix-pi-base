@@ -1,0 +1,91 @@
+{
+  "nodes": {
+    "networking-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757525348,
+        "narHash": "sha256-6Ihq/A4bAcjgBbyO0OJUP1KssyHkwu3CxK8yq3PexGM=",
+        "path": "/home/jack/dev/nix-pi-base/config/networking.toml",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/jack/dev/nix-pi-base/config/networking.toml",
+        "type": "path"
+      }
+    },
+    "nixlib": {
+      "locked": {
+        "lastModified": 1736643958,
+        "narHash": "sha256-tmpqTSWVRJVhpvfSN9KXBvKEXplrwKnSZNAoNPf/S/s=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "1418bc28a52126761c02dd3d89b2d8ca0f521181",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixos-generators": {
+      "inputs": {
+        "nixlib": "nixlib",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751903740,
+        "narHash": "sha256-PeSkNMvkpEvts+9DjFiop1iT2JuBpyknmBUs0Un0a4I=",
+        "owner": "nix-community",
+        "repo": "nixos-generators",
+        "rev": "032decf9db65efed428afd2fa39d80f7089085eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixos-generators",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1757068644,
+        "narHash": "sha256-NOrUtIhTkIIumj1E/Rsv1J37Yi3xGStISEo8tZm3KW4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8eb28adfa3dc4de28e792e3bf49fcf9007ca8ac9",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "networking-config": "networking-config",
+        "nixos-generators": "nixos-generators",
+        "nixpkgs": "nixpkgs",
+        "user-config": "user-config"
+      }
+    },
+    "user-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757449770,
+        "narHash": "sha256-I4IpovC30uULGtGdsrKyIxy69Fla/Z1bLAFRVg9mRxE=",
+        "path": "/home/jack/dev/nix-pi-base/config/users.toml",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/jack/dev/nix-pi-base/config/users.toml",
+        "type": "path"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

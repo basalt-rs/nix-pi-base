@@ -1,0 +1,9 @@
+hostName = "basalt-pi-4"
+[wireless]
+enable = true
+interfaces = [ "wlan0" ]
+
+# replace "SSID" and "PSK" with real values
+[networks."SSID"]
+psk = "PSK"
+priority = 10

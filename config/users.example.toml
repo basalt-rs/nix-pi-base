@@ -1,0 +1,8 @@
+[[users]]
+name = "james"
+hashedPassword = "$y$j9T$82ifL777/6lJEgVktBxrL.$5ZVU1YYVln.v17ToXBUD1fY7ebmFkSHr8PDtIM6/DI0"
+isNormalUser = true
+extraGroups = ["wheel", "docker", "networkmanager"]
+sshKeys = [
+  "ssh-ed25519 AAAA... ...",
+]
