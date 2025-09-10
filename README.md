@@ -5,6 +5,27 @@ image for the Raspberry Pi.
 
 This really basic example just comes with networking, docker, and SSH preconfigured.
 
+## Setup
+
+1. Clone the repo
+
+```sh
+git clone https://github.com/basalt-rs/nix-pi-base.git && cd nix-pi-base
+```
+
+2. Setup
+
+```sh
+make setup-pathing # update paths in `flake.nix`
+make setup-config # create configuration files
+```
+
+3. Build
+
+Build according to your architecture, but different operating systems
+might have additional requirements. You'll likely want to use QEMU to
+cross-compile if necessary.
+
 ## Building on x86 Machines
 
 To build on x86 machines, you will need to set up QEMU with binfmt. I've
