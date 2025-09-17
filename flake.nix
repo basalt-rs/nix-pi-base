@@ -40,6 +40,23 @@
           passwordAuthentication = false;
         };
 
+        # Enable forwarding packets
+        boot.kernel.sysctl = {
+          "net.ipv6.conf.all.forwarding" = 1;
+          "net.ipv4.conf.all.forwarding" = 1;
+        };
+
+        # Enable AP
+        services.create_ap = {
+            enable = true;
+            settings = {
+              INTERNET_IFACE = "wlan0";
+              WIFI_IFACE = "wlp1s0u1";
+              SSID = "Jtest";
+              PASSPHRASE = "12345678";
+            };
+          };
+
         boot.kernelParams = [ "console=tty1" ];
 
         security = import ./security.nix;
