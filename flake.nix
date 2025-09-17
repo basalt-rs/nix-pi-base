@@ -22,6 +22,9 @@
   {
     nixosModules = {
       system = {
+        imports = [
+          ./ap.nix
+        ];
         # disabledModules = [
         #   "profiles/base.nix"
         # ];
@@ -40,42 +43,24 @@
           passwordAuthentication = false;
         };
 
-        # Enable forwarding packets
-        boot.kernel.sysctl = {
-          "net.ipv6.conf.all.forwarding" = 1;
-          "net.ipv4.conf.all.forwarding" = 1;
-        };
-
-        # Enable AP
-        services.create_ap = {
-            enable = true;
-            settings = {
-              INTERNET_IFACE = "wlan0";
-              WIFI_IFACE = "wlp1s0u1";
-              SSID = "Jtest";
-              PASSPHRASE = "12345678";
-            };
-          };
-
         boot.kernelParams = [ "console=tty1" ];
 
         security = import ./security.nix;
       };
 
       # Network configuration
-      networking = (import ./networking.nix {
-        configFile = "${networking-config}";
-      });
+      networking = import ./networking.nix;
 
-      users = (import ./users.nix {
-        configFile = "${user-config}";
-      });
+      users = import ./users.nix;
     };
 
     packages.aarch64-linux = {
       sdcard = nixos-generators.nixosGenerate {
         system = "aarch64-linux";
         format = "sd-aarch64";
+        specialArgs = {
+          inherit networking-config user-config;
+        };
         modules = [
           self.nixosModules.networking
           self.nixosModules.system

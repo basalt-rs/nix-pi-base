@@ -1,6 +1,6 @@
-{ configFile }:
+{ user-config, ... }:
 let
-  userData = builtins.fromTOML (builtins.readFile configFile);
+  userData = builtins.fromTOML (builtins.readFile user-config);
 
   mkUser = user: {
     name = user.name;

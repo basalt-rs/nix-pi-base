@@ -1,6 +1,6 @@
-{ configFile }:
+{ networking-config, ... }:
 let
-  netData = builtins.fromTOML (builtins.readFile configFile);
+  netData = builtins.fromTOML (builtins.readFile networking-config);
 
   mkNet = name: cfg: {
     inherit name;

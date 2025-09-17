@@ -3,8 +3,8 @@
     "networking-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1758128480,
-        "narHash": "sha256-6Ihq/A4bAcjgBbyO0OJUP1KssyHkwu3CxK8yq3PexGM=",
+        "lastModified": 1758147586,
+        "narHash": "sha256-CmUGAN3d51IygHb6jjp21gA7rkBRICR1Og0rRxFYUqQ=",
         "path": "/home/jack/dev/nix-pi-base/config/networking.toml",
         "type": "path"
       },
