@@ -1,5 +1,5 @@
 {
-  sudo = {
+  security.sudo = {
     enable = true;
     extraRules = [
       {

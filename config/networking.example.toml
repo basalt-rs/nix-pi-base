@@ -8,9 +8,9 @@ interfaces = [ "wlan0" ]
 psk = "PSK"
 priority = 10
 
-[ap]
-enable = true
-internet_interface = "wlan0"
-wifi_interface = "wlp1s0u1"
-ssid = "some-awesome-network"
-psk = "some-sick-password"
+# [ap]
+# enable = false
+# internet_interface = "wlan0"
+# wifi_interface = "wlp1s0u1"
+# ssid = "SSID"
+# psk = "PSK"

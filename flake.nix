@@ -24,6 +24,9 @@
       system = {
         imports = [
           ./ap.nix
+          ./networking.nix
+          ./users.nix
+          ./security.nix
         ];
         # disabledModules = [
         #   "profiles/base.nix"
@@ -44,14 +47,7 @@
         };
 
         boot.kernelParams = [ "console=tty1" ];
-
-        security = import ./security.nix;
       };
-
-      # Network configuration
-      networking = import ./networking.nix;
-
-      users = import ./users.nix;
     };
 
     packages.aarch64-linux = {
@@ -62,9 +58,7 @@
           inherit networking-config user-config;
         };
         modules = [
-          self.nixosModules.networking
           self.nixosModules.system
-          self.nixosModules.users
         ];
       };
     };
