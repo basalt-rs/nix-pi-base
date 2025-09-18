@@ -23,10 +23,14 @@ setup-config: $(CONFIGS)
 config/%.toml: config/%.example.toml
 	cp $< $@
 
+update-config:
+	nix flake lock --update-input networking-config
+	nix flake lock --update-input user-config
+
 .decompress-build: .init-output
 	unzstd result/sd-image/nixos-image-sd-card-*-aarch64-linux.img.zst -o ${OUTDIR}/${ARTIFACT_NAME}
 
-build:
+build: update-config
 	nix build --impure .#packages.aarch64-linux.sdcard --system aarch64-linux
 
 safe-eject: .guard-DEVICE

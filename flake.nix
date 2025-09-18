@@ -22,6 +22,12 @@
   {
     nixosModules = {
       system = {
+        imports = [
+          ./ap.nix
+          ./networking.nix
+          ./users.nix
+          ./security.nix
+        ];
         # disabledModules = [
         #   "profiles/base.nix"
         # ];
@@ -41,28 +47,18 @@
         };
 
         boot.kernelParams = [ "console=tty1" ];
-
-        security = import ./security.nix;
       };
-
-      # Network configuration
-      networking = (import ./networking.nix {
-        configFile = "${networking-config}";
-      });
-
-      users = (import ./users.nix {
-        configFile = "${user-config}";
-      });
     };
 
     packages.aarch64-linux = {
       sdcard = nixos-generators.nixosGenerate {
         system = "aarch64-linux";
         format = "sd-aarch64";
+        specialArgs = {
+          inherit networking-config user-config;
+        };
         modules = [
-          self.nixosModules.networking
           self.nixosModules.system
-          self.nixosModules.users
         ];
       };
     };

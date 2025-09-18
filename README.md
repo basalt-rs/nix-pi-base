@@ -78,3 +78,11 @@ sudo pacman -S qemu-user-static qemu-user-static-binfmt
 3. Build
 
 You're good to build and flash as usual!
+
+## Updating Configs _After_ Builds
+
+When you make changes to config files, you will need to update the nix lock:
+
+```sh
+make update-config
+```
