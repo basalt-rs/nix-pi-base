@@ -10,6 +10,14 @@ in
       "net.ipv6.conf.all.forwarding" = 1;
       "net.ipv4.conf.all.forwarding" = 1;
     };
+    systemd.services.create_ap = {
+      after = [ "network-online.target" ];
+      wants = [ "network-online.target" ];
+      serviceConfig = {
+        Restart = "on-failure";
+        RestartSec = "120";
+      };
+    };
     # Enable AP
     services.create_ap = {
       enable = netData.ap.enable or true;
