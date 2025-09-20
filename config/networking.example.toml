@@ -1,16 +1,37 @@
 hostName = "basalt-pi-4"
+
 [wireless]
 enable = true
 interfaces = [ "wlan0" ]
+# Optional: Enable user control tools like wpa_gui
+userControlled.enable = false
+# Optional: Extra wpa_supplicant settings (e.g., for SSL issues)
+extraConfig = ""
 
-# replace "SSID" and "PSK" with real values
-[networks."SSID"]
-psk = "PSK"
+# Personal network (PSK-based)
+[networks."Home_SSID"]
+psk = "my_psk_password"
 priority = 10
 
-# [ap]
-# enable = false
-# internet_interface = "wlan0"
-# wifi_interface = "wlp1s0u1"
-# ssid = "SSID"
-# psk = "PSK"
+# University network (WPA2-Enterprise)
+[networks."University_SSID"]
+# For enterprise networks, use 'auth' instead of 'psk'
+auth = '''
+  key_mgmt=WPA-EAP
+  eap=PEAP
+  identity="your_username@university.edu"
+  password="your_password"
+  phase2="auth=MSCHAPV2"
+'''
+priority = 20
+hidden = false  # Set to true if the SSID is hidden
+
+# Another enterprise example (Eduroam with EAP-PWD)
+[networks."eduroam"]
+auth = '''
+  key_mgmt=WPA-EAP
+  eap=PWD
+  identity="your_username@university.edu"
+  password="your_password"
+'''
+priority = 15
