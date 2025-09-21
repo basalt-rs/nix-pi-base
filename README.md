@@ -20,6 +20,12 @@ make setup-pathing # update paths in `flake.nix`
 make setup-config # create configuration files
 ```
 
+Make your configurations by modifying the following files:
+
+- `config/networking.toml`
+- `config/users.toml`
+- `security.nix`
+
 3. Build
 
 Build according to your architecture, but different operating systems
